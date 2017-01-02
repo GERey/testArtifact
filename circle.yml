@@ -1,29 +1,14 @@
 
 
 dependencies:
-
-pre:
-
-- export
-
-dependencies:
-
-pre:
-
-- export
-
-- echo foo bar > $CIRCLE_ARTIFACTS/VERSION
-
-- ls -lah $CIRCLE_ARTIFACTS
+  pre:
+    - export
+    - echo foo bar > $CIRCLE_ARTIFACTS/VERSION
+    - ls -lah $CIRCLE_ARTIFACTS
 
 deployment:
-
-pipeline:
-
-branch: [master]
-
-commands:
-
-- ls -lah $CIRCLE_ARTIFACTS
-
-- cat $CIRCLE_ARTIFACTS/VERSION
+  pipeline:
+    branch: [master]
+      commands:
+        - ls -lah $CIRCLE_ARTIFACTS
+        - cat $CIRCLE_ARTIFACTS/VERSION
